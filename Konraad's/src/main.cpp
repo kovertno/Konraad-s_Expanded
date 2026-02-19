@@ -256,14 +256,6 @@ bool TargetClickDetection(GLFWwindow* window, Camera& camera, std::vector<glm::v
     return false;
 }
 
-std::vector<glm::vec3> wallPositions{
-    glm::vec3(0.0f, 12.0f, -25.0f), // front
-    glm::vec3(25.0f, 12.0f, 0.0f),  // right
-    glm::vec3(0.0f, 12.0f, 25.0f),  // back
-    glm::vec3(-25.0f, 12.0f, 0.0f), // left
-    glm::vec3(0.0f, -3.0f, 0.0f)    // floor 
-};
-
 void ManageWallCollision(Camera& camera) {
     if (camera.Position.z < -24.0f)
         camera.Position.z = -24.0f;
@@ -448,6 +440,7 @@ void GameLogic(GLFWwindow* window, std::vector<glm::vec3>& cubePositions) {
 }
 
 void RenderBoxes(Shader& cubeShader, std::vector<glm::vec3>& cubePositions, unsigned int* texture, unsigned int VAO) {
+    cubeShader.use();
     glBindVertexArray(VAO);
 
     glActiveTexture(GL_TEXTURE0);
@@ -522,22 +515,21 @@ void RenderWalls(Shader& cubeShader, std::vector<glm::vec3>& wallPositions, unsi
         cubeShader.setFloat("material.shininess", 32.0f);
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
-
-        // floor
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, wallPositions[4]);
-        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-        model = glm::scale(model, glm::vec3(50.0f, 50.0f, 0.2f));
-        cubeShader.setMat4("model", model);
-
-        cubeShader.setVec3("material.ambient", glm::vec3(1.0f, 1.0f, 1.0f));
-        cubeShader.setVec3("material.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
-        cubeShader.setVec3("material.specular", glm::vec3(0.5f, 0.5f, 0.5f));
-        cubeShader.setFloat("material.shininess", 32.0f);
-
-        cubeShader.setInt("flipNormal", 1);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
     }
+    // floor
+    glm::mat4 model = glm::mat4(1.0f);
+    model = glm::translate(model, wallPositions[4]);
+    model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    model = glm::scale(model, glm::vec3(50.0f, 50.0f, 0.2f));
+    cubeShader.setMat4("model", model);
+
+    cubeShader.setVec3("material.ambient", glm::vec3(1.0f, 1.0f, 1.0f));
+    cubeShader.setVec3("material.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
+    cubeShader.setVec3("material.specular", glm::vec3(0.5f, 0.5f, 0.5f));
+    cubeShader.setFloat("material.shininess", 32.0f);
+
+    cubeShader.setInt("flipNormal", 1);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
 void RenderCrosshair(Shader& crosshairShader, unsigned int VAO) {
