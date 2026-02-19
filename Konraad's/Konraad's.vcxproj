@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\camera.h" />
@@ -147,6 +148,12 @@
     <None Include="resources\shaders\cubeShader.vs" />
     <None Include="resources\shaders\lightCubeShader.fs" />
     <None Include="resources\shaders\lightCubeShader.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\textures\matrix.jpg" />
+    <Image Include="resources\textures\woodbox.png" />
+    <Image Include="resources\textures\woodbox_specular.png" />
+    <Image Include="resources\textures\woodbox_specular_color.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

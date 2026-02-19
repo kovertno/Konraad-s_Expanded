@@ -21,6 +21,9 @@
     <ClCompile Include="src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\stb_image.h">
@@ -40,5 +43,19 @@
     <None Include="resources\shaders\crosshairShader.fs" />
     <None Include="resources\shaders\lightCubeShader.vs" />
     <None Include="resources\shaders\lightCubeShader.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\textures\woodbox.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\woodbox_specular.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\woodbox_specular_color.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\matrix.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
