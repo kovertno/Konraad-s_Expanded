@@ -146,6 +146,8 @@
     <None Include="resources\shaders\crosshairShader.vs" />
     <None Include="resources\shaders\cubeShader.fs" />
     <None Include="resources\shaders\cubeShader.vs" />
+    <None Include="resources\shaders\debugShader.fs" />
+    <None Include="resources\shaders\debugShader.vs" />
     <None Include="resources\shaders\lightCubeShader.fs" />
     <None Include="resources\shaders\lightCubeShader.vs" />
   </ItemGroup>

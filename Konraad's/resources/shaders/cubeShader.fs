@@ -53,6 +53,7 @@ struct TextureMaterial {
 uniform TextureMaterial textureMaterial;
 
 uniform bool useTexture;
+uniform bool isDebugColors;
 uniform vec3 viewPos;
 
 out vec4 FragColor;
@@ -78,8 +79,11 @@ void main() {
 	}
 	// spot light
 	result += CalcSpotLight(spotLight, normal, viewDir, FragPos, useTexture);
-
-	FragColor = vec4(result, 1.0);
+	
+	if (isDebugColors)
+		FragColor = vec4(normalize(Normal), 1.0);
+	else
+		FragColor = vec4(result, 1.0);
 }
 
 vec3 CalcDirLight(DirLight dirLight, vec3 normal, vec3 viewDir, bool useTexture) {

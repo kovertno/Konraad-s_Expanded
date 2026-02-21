@@ -43,6 +43,8 @@
     <None Include="resources\shaders\crosshairShader.fs" />
     <None Include="resources\shaders\lightCubeShader.vs" />
     <None Include="resources\shaders\lightCubeShader.fs" />
+    <None Include="resources\shaders\debugShader.vs" />
+    <None Include="resources\shaders\debugShader.fs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\woodbox.png">
