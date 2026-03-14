@@ -12,6 +12,3 @@ A high-performance aim trainer built from scratch in C++ and OpenGL. Instead of 
 * **Language:** C++
 * **Graphics:** OpenGL, GLM
 * **Input/Windowing:** GLFW, glad
-
-## 📸 Preview
-![Gridshot Preview](https://via.placeholder.com/800x400?text=Insert+Gameplay+GIF+Here)
